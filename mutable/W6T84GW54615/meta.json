@@ -1,0 +1,21 @@
+{
+  "name": "One Pot Creamy Pesto Chicken Pasta",
+  "type": "recipe",
+  "identity": "root.W6T84GW54615",
+  "version": "1",
+  "lang": "en",
+  "source": [
+    {
+      "type": "website",
+      "url": "https://www.budgetbytes.com/one-pot-creamy-pesto-chicken-pasta/",
+      "author": "Beth - Budget Bytes"
+    }
+  ],
+  "prep": "5 min",
+  "cook": "20 min",
+  "yield": "4 servings",
+  "equipment": [
+    "cooktop",
+    "skillet, deep"
+  ]
+}

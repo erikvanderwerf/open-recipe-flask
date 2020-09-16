@@ -1,0 +1,14 @@
+{
+  "name": "Red Berry Tart",
+  "type": "recipe",
+  "identity": "root.46HN8D6GF84",
+  "version": "1",
+  "lang": "en",
+  "source": [
+    {
+      "type": "website",
+      "url": "https://chowdown.io/recipes/red-berry-tart.html",
+      "author": "Clark - Chowdown"
+    }
+  ]
+}
