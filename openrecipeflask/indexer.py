@@ -16,6 +16,7 @@ async def reindex(repo_factory: Callable[[], Repository], parent_dir: Path) -> N
         be in use simultaneously.
     :param parent_dir: Directory to begin index on.
     """
+    logger.info('running index')
     if not parent_dir.is_dir():
         raise ValueError('parent_dir must be a directory')
     for file in _walk(parent_dir):
@@ -32,12 +33,9 @@ def _walk(path_dir: Path) -> Iterator[Path]:
 
 async def index_file(repo: Repository, file_path: Path):
     item: Item = OrfItem.from_path(file_path)
-
     with repo as conn:
-        logger.info(f'Indexing file: {item} for {conn}')
         index = conn.index
         if item.index not in index:
             logger.info(f'Adding {item} to index.')
             index.insert(item.index, link_to_file=file_path)
-        print('\n'.join(conn.iterdump()))
         conn.commit()

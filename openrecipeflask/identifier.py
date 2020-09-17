@@ -5,8 +5,8 @@ class OrfIdentifier:
         self._parts = parts
 
     @staticmethod
-    def from_url(identifier: str):
-        return OrfIdentifier(identifier.split('/'))
+    def from_url(path: str):
+        return OrfIdentifier(path.split('/'))
 
     @staticmethod
     def from_dots(dots: str):

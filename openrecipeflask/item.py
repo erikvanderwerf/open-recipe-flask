@@ -1,4 +1,3 @@
-import typing
 from abc import abstractmethod, ABC
 from typing import List
 
@@ -29,10 +28,19 @@ class ItemIndex(ABC):
 
 
 class Metadata(ABC):
-    def __init__(self, name: str, type: str, identity: OrfIdentifier, version: str, lang: str, source: List):
-        self.name = name
-        self.type = type
+    def __init__(self, identity: OrfIdentifier, version: str, name: str, type: str, lang: str, source: List):
         self.identity = identity
         self.version = version
+        self.name = name
+        self.type = type
         self.lang = lang
         self.source = source
+
+
+def json_index_serializer(item: ItemIndex):
+    return {'id': item.identifier.dot, 'ver': item.version, 'name': item.name}
+
+
+def json_meta_serializer(meta: Metadata):
+    return {'id': meta.identity.dot, 'ver': meta.version, 'name': meta.name,
+            'type': meta.type, 'lang': meta.lang, 'source': meta.source}

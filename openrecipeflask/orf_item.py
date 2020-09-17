@@ -24,5 +24,5 @@ class OrfItem(Item):
     @property
     def meta(self) -> Metadata:
         j = json.load(self._archive.extractfile('meta.json'))
-        return Metadata(j['name'], j['type'], OrfIdentifier.from_dots(j['identity']),
-                        j['version'], j['lang'], j['source'])
+        return Metadata(OrfIdentifier.from_dots(j['identity']), j['version'], j['name'], j['type'], j['lang'],
+                        j['source'])

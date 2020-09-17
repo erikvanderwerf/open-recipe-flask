@@ -53,7 +53,7 @@ async def schedule_periodic(name: str, delay: int, func: Callable[[], Coroutine]
 
 
 tasks = asyncio.gather(
-    schedule_periodic('IndexTask', 5, lambda: indexer.reindex(lambda: Repository(DB_PATH), ORF_DIR)),
+    schedule_periodic('IndexTask', 60, lambda: indexer.reindex(lambda: Repository(DB_PATH), ORF_DIR)),
     return_exceptions=True
 )
 
